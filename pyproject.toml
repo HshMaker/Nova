@@ -1,0 +1,6 @@
+[project]
+name = "nova"
+version = "0.1.0"
+
+[project.scripts]
+nova = "nova.__main__:main"

@@ -1,0 +1,25 @@
+pack Random then
+
+    #init(...seed: int) then
+        if (seed.length() == 0) then
+            #seed: int = time.now()
+        other then
+            #seed: int = seed[0]
+        end
+    end
+
+    fun after() then
+        #seed = (#seed * 1103515245 + 12345) % 2147483648
+
+        return #seed
+    end
+
+    fun getInt(stop: int) then
+        var result: int = #after() % stop
+
+        return result
+    end
+
+end
+
+send Random
