@@ -1,0 +1,27 @@
+var n: int = utils.toInt(terminal.write("원하는 숫자를 입력해주세요: "))
+var i: int = 0
+var star: string = ""
+
+repeat (i < n) then
+    var j: int = i
+
+    repeat (j < (n-1)) then
+        star = star + " "
+        j = j + 1
+    end
+
+    var h: int = 0
+
+    repeat (h < (i * 2 + 1)) then
+        star = star + "*"
+        h = h + 1
+    end
+    if ((i+1) == n) then
+        out
+    end
+    star = star + "\n"
+    
+    i = i + 1
+end
+
+terminal.log(star)

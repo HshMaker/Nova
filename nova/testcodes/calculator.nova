@@ -1,0 +1,40 @@
+var i: int = 0
+
+fun add(first: int, second: int): int then
+    return first + second
+end
+
+fun substract(first: int, second: int): int then
+    return first - second
+end
+
+fun multifly(first: int, second: int): int then
+    return first * second
+end
+
+fun divide(first: float, second: float): float then
+    return first / second
+end
+
+repeat (i == 0) then
+    var temp = terminal.write("원하는 연산을 입력하시오(+, -, *, /, 종료는 입력 X): ")
+
+    if (temp == "") then
+        out
+    end
+
+    var first = utils.toInt(terminal.write("첫 번째 숫자: "))
+    var second = utils.toInt(terminal.write("두 번째 숫자: "))
+
+    if (temp == "+") then
+        terminal.log(add(first, second))
+    other if (temp == "-") then
+        terminal.log(substract(first, second))
+    other if (temp == "*") then
+        terminal.log(multifly(first, second))
+    other if (temp == "/") then
+        terminal.log(divide(utils.toFloat(first), utils.toFloat(second)))
+    other then
+        terminal.warn("아뇨아뇨. 유효한 연산을 입력해주세요.")
+    end
+end
