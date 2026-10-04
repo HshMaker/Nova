@@ -1,0 +1,25 @@
+var list: array<int> = [0]
+
+var n: int = utils.toInt(terminal.write("출력하고자 하는 수열의 개수를 입력하시오: "))
+
+
+var i: int = 0
+var plus: int = 1
+
+repeat (i < n) then
+    i = i + 1
+
+    list.push(plus)
+    
+    var sum: int = 0
+    var j: int = 0
+    repeat (j < 2) then
+        j = j + 1
+
+        sum = sum + list[list.length() - j]
+    end
+
+    plus = sum
+end
+
+terminal.log(list)

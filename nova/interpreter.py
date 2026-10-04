@@ -11,7 +11,9 @@ from nova.parser import Parser
 
 
 class Interpreter:
-    def __init__(self):
+    def __init__(self, fileDir):
+        self.fileDir = fileDir
+
         self.variables: dict[str, Variable] = {}
         self.functions: dict[str, Function] = {}
 
@@ -47,9 +49,7 @@ class Interpreter:
         self,
         node
     ):
-        return self.visit(
-            node.expression
-        )
+        return self.visit(node.expression)
 
     def visit_PropertyExpression(
         self,
@@ -593,15 +593,18 @@ class Interpreter:
     # take at
     def visit_TakeStatement(
         self,
-        node
+        node: TakeStatement
     ):
-        with open(node.path, "r", encoding="utf-8") as f:
+        currentDir = self.fileDir.split("/")
+        del currentDir[-1]
+        realDir = "/".join(currentDir) + node.path
+        with open(realDir, "r", encoding="utf-8") as f:
             source = f.read()
 
             tokens = tokenize(source)
 
             ast = Parser(tokens).parse()
-            module_interpreter = Interpreter()
+            module_interpreter = Interpreter(realDir)
             module_interpreter.execute(ast)
 
             exports = {}

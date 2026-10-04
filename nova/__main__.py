@@ -18,7 +18,7 @@ def run(filename):
     tokens = tokenize(source)
     parser = Parser(tokens)
     ast = parser.parse()
-    interpreter = Interpreter()
+    interpreter = Interpreter(filename)
     interpreter.execute(ast)
 
 

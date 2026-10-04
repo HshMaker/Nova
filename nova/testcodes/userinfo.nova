@@ -1,0 +1,17 @@
+pack User then
+
+    #init(name: string, age: int) then
+        #info: object = {name: name, age: age}
+    end
+
+    #appear() then
+        return "이름은 " + #info.name + "이고\n나이는 " + utils.toString(#info.age) + "입니다."
+    end
+
+end
+
+var me: User = User("함승혁", 3)
+
+terminal.log(me.info)
+
+terminal.log(me)

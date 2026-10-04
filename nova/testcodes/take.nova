@@ -1,0 +1,15 @@
+take SendingPack at "/send.nova"
+
+var nova = SendingPack(0)
+
+terminal.log(nova.getValue())
+
+nova.addValue(3)
+
+terminal.log(nova.getValue())
+
+nova.setValue(10)
+
+terminal.log(nova.getValue())
+
+terminal.log(nova)

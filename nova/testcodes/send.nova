@@ -1,0 +1,25 @@
+pack SendingPack then
+
+    #init(entryValue: int) then
+        #value: int = entryValue
+    end
+
+    fun getValue() then
+        return #value
+    end
+
+    fun addValue(num: int) then
+        #value = #value + num
+    end
+
+    fun setValue(num: int) then
+        #value = num
+    end
+
+    #appear() then
+        return ("value값은 " + utils.toString(#value))
+    end
+
+end
+
+send SendingPack
