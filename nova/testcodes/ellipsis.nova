@@ -1,0 +1,5 @@
+fun test(param: int, ...remains: int) then
+    terminal.log(remains)
+end
+ 
+test(3, 2, 3, 2) // 3, [2, 3, 2]
